@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hangman</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+
+  <body class="page">
+    <section class="lives">
+      <div class="lives__element lives__element_is-opened">1</div>
+      <div class="lives__element lives__element_is-opened">2</div>
+      <div class="lives__element lives__element_is-opened">3</div>
+      <div class="lives__element lives__element_is-opened">4</div>
+      <div class="lives__element lives__element_is-opened">5</div>
+      <div class="lives__element lives__element_is-opened">6</div>
+    </section>
+    <button type="submit" class="start__button" aria-label="Send">Start</button>
+    <form class="form" name="formletter" novalidate>
+      <input
+        minlength="1"
+        maxlength="1"
+        type="text"
+        name="letter"
+        placeholder="Enter one letter"
+        class="form__input"
+        required
+      />
+      <button disabled type="submit" class="form__button form__button_disabled" aria-label="Send">Ok</button>
+    </form>
+    <div class="result">
+      <h3 class="result__title">Your result here:</h3>
+      <div class="result__container"></div>
+    </div>
+
+    <template id="letter-template">
+      <h4 class="right-letter"></h4>
+    </template>
+
+    <script src="index.js"></script>
+  </body>
+</html>
