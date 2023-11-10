@@ -1,30 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&display=swap');
+
 .page {
   background-color: white;
-  padding: 20px;
+  background-image: url(back.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+  height: 100vh;
+  /* position: relative; */
 }
 
-.lives {
+.page__opacity {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.header {
   display: flex;
-  margin-bottom: 30px;
+  justify-content: center;
+  align-items: center;
 }
 
-.lives__element {
-  width: 100px;
-  height: 50px;
-  background-color: #424242;
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 24px;
+.header__title {
+  font-family: 'Agbalumo', sans-serif;
+  font-size: 36px;
   line-height: normal;
-  text-align: center;
-  margin-right: 20px;
-  color: white;
-  visibility: hidden;
-  opacity: 0;
+  color: #830829;
+  border-bottom: solid 2px black;
+  padding-bottom: 5px;
 }
 
-.lives__element_is-opened {
-    visibility: visible;
-    opacity: 1;
+.resut-word {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .start__button {
@@ -35,10 +52,52 @@
   font-size: 18px;
   line-height: normal;
   text-align: center;
-  margin-bottom: 30px;
   border: none;
   display: block;
   border-radius: 2px;
+  margin: 20px auto 30px auto;
+}
+
+.word__elements {
+  display: flex;
+  list-style: none;
+  padding: 20px 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container {
+  display: flex;
+  margin-top: 30px;
+  width: 1000px;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.lives {
+  display: flex;
+  background-image: url(level0.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 500px;
+  height: 420px;
+  position: relative;
+}
+
+.lives__element {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+.lives__element_is-opened {
+  visibility: visible;
+  opacity: 1;
 }
 
 .form {
@@ -77,26 +136,59 @@
   cursor: default;
 }
 
-.result {
+.letter-cell {
+  border: solid 1px black;
+  width: 50px;
+  height: 50px;
+  background-color: #abc8f7;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
 }
 
-.result__container {
-  display: flex;
-}
-
-.result__title {
-  font-size: 28px;
+.letter-name {
+  font-family: 'Agbalumo', sans-serif;
+  padding-bottom: 40px;
+  height: 46px;
+  font-size: 46px;
   line-height: normal;
-  margin: 0;
-  font-weight: 500;
+  font-weight: 900;
+  color: #ee3465;
+  visibility: hidden;
+  opacity: 0;
 }
 
-.right-letter {
-  margin: 0 5px 0 0;
-  font-size: 32px;
-  line-height: 50px;
+.letter-name_is-opened {
+  visibility: visible;
+  opacity: 1;
+}
+
+.dialog {
+  /* display: flex; */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 50%;
+  border: none;
+}
+
+.dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.6);
+  backdrop-filter: blur(10px);
+}
+
+.dialog__title {
+  font-size: 46px;
+  line-height: normal;
   font-weight: 900;
-  color: #EE3465;
+  margin: 0 0 30px 0;
+}
+
+.dialog__subtitle {
+  font-size: 32px;
+  line-height: normal;
+  font-weight: 500;
+  margin: 0;
 }

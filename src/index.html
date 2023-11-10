@@ -8,36 +8,52 @@
   </head>
 
   <body class="page">
-    <section class="lives">
-      <div class="lives__element lives__element_is-opened">1</div>
-      <div class="lives__element lives__element_is-opened">2</div>
-      <div class="lives__element lives__element_is-opened">3</div>
-      <div class="lives__element lives__element_is-opened">4</div>
-      <div class="lives__element lives__element_is-opened">5</div>
-      <div class="lives__element lives__element_is-opened">6</div>
-    </section>
-    <button type="submit" class="start__button" aria-label="Send">Start</button>
-    <form class="form" name="formletter" novalidate>
-      <input
-        minlength="1"
-        maxlength="1"
-        type="text"
-        name="letter"
-        placeholder="Enter one letter"
-        class="form__input"
-        required
-      />
-      <button disabled type="submit" class="form__button form__button_disabled" aria-label="Send">Ok</button>
-    </form>
-    <div class="result">
-      <h3 class="result__title">Your result here:</h3>
-      <div class="result__container"></div>
+    <div class="page__opacity">
+      <header class="header">
+        <h1 class="header__title">Guess the word: animals</h1>
+      </header>
+      <main class="main">
+        <section class="resut-word">
+          <button type="submit" class="start__button" aria-label="Send">Start</button>
+          <ul class="word__elements"></ul>
+        </section>
+        <section class="container">
+          <section class="lives">
+            <img class="lives__element lives__element_is-opened" src="level6.jpg" alt="#" />
+            <img class="lives__element lives__element_is-opened" src="level5.jpg" alt="#" />
+            <img class="lives__element lives__element_is-opened" src="level4.jpg" alt="#" />
+            <img class="lives__element lives__element_is-opened" src="level3.jpg" alt="#" />
+            <img class="lives__element lives__element_is-opened" src="level2.jpg" alt="#" />
+            <img class="lives__element lives__element_is-opened" src="level1.jpg" alt="#" />
+            <img class="lives__element lives__element_is-opened" src="level0.jpg" alt="#" />
+          </section>
+          <form class="form" name="formletter" novalidate>
+            <input
+              minlength="1"
+              maxlength="1"
+              type="text"
+              name="letter"
+              placeholder="Enter one letter"
+              class="form__input"
+              required
+            />
+            <button disabled type="submit" class="form__button form__button_disabled" aria-label="Send">Ok</button>
+          </form>
+        </section>
+      </main>
+
+      <dialog id="dialog-result" class="dialog">
+        <h3 class="dialog__title">You won</h3>
+        <p class="dialog__subtitle">🖖 Live long and prosper!</p>
+      </dialog>
+
+      <template id="cell-template">
+        <li class="letter-cell">
+          <p class="letter-name"></p>
+        </li>
+      </template>
+
+      <script src="index.js"></script>
     </div>
-
-    <template id="letter-template">
-      <h4 class="right-letter"></h4>
-    </template>
-
-    <script src="index.js"></script>
   </body>
 </html>

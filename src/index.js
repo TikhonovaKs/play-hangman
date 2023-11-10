@@ -1,59 +1,84 @@
 const wordsArray = [
-  'Apple',
-  'Banana',
-  'Computer',
-  'Elephant',
-  'Guitar',
-  'Chocolate',
-  'Diamond',
-  'Butterfly',
-  'Elephant',
-  'Pineapple',
+  'dog',
+  'cat',
+  'elephant',
+  'lion',
+  'tiger',
+  'giraffe',
+  'zebra',
+  'bear',
+  'penguin',
+  'dolphin',
+  'whale',
+  'shark',
+  'eagle',
+  'owl',
+  'rabbit',
+  'fox',
+  'horse',
+  'cow',
+  'pig',
+  'sheep',
+  'goat',
+  'duck',
+  'goose',
+  'fish',
+  'snake',
 ];
 
 const buttonStart = document.querySelector('.start__button');
 const addButton = document.querySelector('.form__button');
 const resultWord = document.querySelector('.result__container');
 const liveElement = document.querySelector('.lives__element');
+const wordElement = document.querySelector('.word__elements');
 const form = document.forms.formletter;
 const letter = form.elements.letter;
 
 // Get random word from array:
 let randomWord = '';
+let lettersArrayOfRandomWord = [];
 
 buttonStart.addEventListener('click', function () {
-  // Get random index from array:
   const randomIndex = Math.floor(Math.random() * wordsArray.length);
-
-  // Get random element(word):
   randomWord = wordsArray[randomIndex];
 
-  console.log(randomWord);
+  lettersArrayOfRandomWord = randomWord.split('');
+
+  lettersArrayOfRandomWord.forEach((letter) => {
+    const cellTemplate = document.querySelector('#cell-template').content;
+    const cellElement = cellTemplate.cloneNode(true);
+
+    cellElement.querySelector('.letter-name').textContent = letter;
+    wordElement.append(cellElement);
+  });
 });
 
 function addLetter(letterValue) {
-  const letterTemplate = document.querySelector('#letter-template').content;
-  const letterElement = letterTemplate.cloneNode(true);
+  let hasMatch = false;
 
-  //check if the letter is in the selected word
-  let hasLetterInWord = false;
+  // let hasMatchAll = true;
 
-  for (let i = 0; i < randomWord.length; i++) {
-    if (randomWord[i] === letterValue) {
-      //return letterValue;
-      hasLetterInWord = true;
-      //break;
-    } else {
-      liveElement.classList.remove('lives__element_is-opened');
+  lettersArrayOfRandomWord.forEach((item, index) => {
+    if (item === letterValue) {
+      const rightLetter = document.querySelectorAll('.letter-name')[index];
+      rightLetter.textContent = item; // Set the content to the matched letter
+      rightLetter.classList.add('letter-name_is-opened');
+      hasMatch = true;
     }
-  }
+    // if (!document.querySelectorAll('.letter-name')[index].classList.contains('letter-name_is-opened')) {
+    //   hasMatchAll = false; // If any letter is not matched, set hasMatchAll to false
+    // }
+  });
 
-  if (hasLetterInWord) {
-    letterElement.querySelector('.right-letter').textContent = letterValue;
+  if (!hasMatch) {
+    const listOfLives = document.querySelectorAll('.lives__element');
 
-    resultWord.append(letterElement);
+    const lastLife = listOfLives[listOfLives.length - 1];
+    lastLife.remove();
   }
 }
+
+
 
 // form
 // swith button condition
